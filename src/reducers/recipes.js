@@ -1,8 +1,11 @@
 // src/reducers/recipes.js
 import { SEED_RECIPES } from '../actions/recipes/seed'
 import { UPDATE_RECIPE } from '../actions/recipes/update'
+import { CREATE_RECIPE } from '../actions/recipes/create'
 
-export default (state = [], { type, payload } = {}) => {
+const initialState = []
+
+export default (state = initialState, { type, payload } = {}) => {
   switch (type) {
     case SEED_RECIPES :
       return [].concat(payload)
@@ -15,7 +18,10 @@ export default (state = [], { type, payload } = {}) => {
         return Object.assign({}, recipe, updates)
       })
 
-    default :
+    case CREATE_RECIPE :
+      return [Object.assign({}, payload)].concat(state)
+
+   default :
       return state
   }
 }

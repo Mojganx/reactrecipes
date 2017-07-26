@@ -6,6 +6,7 @@ import seedRecipes from '../actions/recipes/seed'
 import Title from '../components/Title'
 import RecipeItem from './RecipeItem'
 import './RecipesContainer.css'
+import RecipeEditor from './RecipeEditor'
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -28,6 +29,7 @@ export class RecipesContainer extends PureComponent {
       <div className="recipes wrapper">
         <header>
           <Title content="Recipes" />
+          <RecipeEditor />
         </header>
 
         <main>
